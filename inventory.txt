@@ -1,0 +1,54 @@
+void parseString(char *s)
+{
+    /*
+    1. config traffic light X 
+    2. read traffic monitor
+    3. config traffic monitor X
+    4. read traffic light X
+    */
+
+    sscanf(s, "%s %s %s %d", s1, s2, s3, &trf);
+    if (strcmp(s1, "config") == 0)
+    {
+        if (strcmp(s3, "light") == 0) // config traffic light
+        {
+            if (trf == 1)
+                sscanf(s, "%s %s %s %d %c %c %c %d %d %d %d", s1, s2, s3, &trf, &ch1, &ch2, &ch3, &G1, &Y1, &R1, &T1);
+
+            if (trf == 2)
+                sscanf(s, "%s %s %s %d %c %c %c %d %d %d %d", s1, s2, s3, &trf, &ch1, &ch2, &ch3, &G2, &Y2, &R2, &T2);
+        }
+        if (strcmp(s3, "monitor") == 0)
+        {
+            // config traffic monitor
+            sscanf(s, "%s %s %s %d", s1, s2, s3, &in);
+        }
+    }
+
+    if (strcmp(s1, "read.") == 0)
+    {
+        if (strcmp(s2, "") == 0) // read (traffic status)
+        {
+            UART_SendString(USART2, "hi");
+        }
+        if (strcmp(s3, "light") == 0) // read traffic light
+        {
+            if (trf == 1)
+            {
+                sprintf(str, "traffic light 1 G Y R %d %d %d %d", G1, Y1, R1, T1);
+                UART_SendString(USART2, str);
+            }
+
+            else
+            {
+                sprintf(str, "traffic light 2 G Y R %d %d %d %d", G2, Y2, R2, T2);
+                UART_SendString(USART2, str);
+            }
+        }
+        if (strcmp(s3, "monitor") == 0) // read traffic monitor
+        {
+            sprintf(str, "traffic monitor %d", in);
+            UART_SendString(USART2, str);
+        }
+    }
+}

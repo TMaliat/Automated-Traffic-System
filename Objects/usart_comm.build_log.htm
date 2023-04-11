@@ -1,0 +1,169 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Tanzeem Maliat, CSEDU, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.16
+Assembler:       Armasm.exe V6.16
+Linker/Locator:  ArmLink.exe V6.16
+Library Manager: ArmAr.exe V6.16
+Hex Converter:   FromElf.exe V6.16
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+G:\Microcontroller Projects\uartTraffic_23_51\usart_comm.uvprojx
+Project File Date:  04/05/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+assembling startup_stm32f446xx.s...
+CLOCK.c(64): warning: // comments are not allowed in this language [-Wcomment]
+        RCC->APB1ENR |= RCC_APB1ENR_PWREN; //power enable for APB1
+                                           ^
+1 warning generated.
+compiling CLOCK.c...
+compiling system_stm32f4xx.c...
+compiling GPIO.c...
+SYS_INIT.c(36): warning: // comments are not allowed in this language [-Wcomment]
+// Systick ISR executes every milli-second
+^
+1 warning generated.
+compiling SYS_INIT.c...
+USART.c(50): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for(uint8_t i=0;i<size;i++){
+            ^
+USART.c(50): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+USART.c(61): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for(uint8_t i=0;i<size;i++){
+            ^
+USART.c(61): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+USART.c(124): warning: // comments are not allowed in this language [-Wcomment]
+        //1. Enable UART clock and GPIO clock
+        ^
+5 warnings generated.
+compiling USART.c...
+main.c(33): warning: implicit conversion changes signedness: 'uint32_t' (aka 'unsigned int') to 'int' [-Wsign-conversion]
+    int currTime = totaltime;
+        ~~~~~~~~   ^~~~~~~~~
+main.c(36): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        currState |= 0b10;
+                     ^
+main.c(39): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        currState |= 0b01;
+                     ^
+main.c(42): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        currState |= 0b00;
+                     ^
+main.c(45): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        currState |= 0b10;
+                     ^
+main.c(48): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        currState |= 0b00;
+                     ^
+main.c(52): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+    sprintf(str,"%d traffic light 1 %s %s", currTime, (currState & 0b10) ? "OFF" : "ON", (currState & 0b01) ? "OFF ON" : "ON OFF");
+                                                                   ^
+main.c(52): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+    sprintf(str,"%d traffic light 1 %s %s", currTime, (currState & 0b10) ? "OFF" : "ON", (currState & 0b01) ? "OFF ON" : "ON OFF");
+                                                                                                      ^
+main.c(55): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+    sprintf(str,"%d traffic light 2 %s %s", currTime, (currState & 0b10) ? "OFF" : "ON", (currState & 0b01) ? "ON OFF" : "OFF OFF");
+                                                                   ^
+main.c(55): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+    sprintf(str,"%d traffic light 2 %s %s", currTime, (currState & 0b10) ? "OFF" : "ON", (currState & 0b01) ? "ON OFF" : "OFF OFF");
+                                                                                                      ^
+main.c(62): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        roadState |= 0b10; /* Road east-west is heavy*/
+                     ^
+main.c(65): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        roadState |= 0b01; /* Road north-south is heavy*/
+                     ^
+main.c(67): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+    sprintf(str,"%d road east west %s", currTime, (roadState & 0b10) ? "HEAVY" : "LIGHT");
+                                                               ^
+main.c(70): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+    sprintf(str,"%d road north south %s", currTime, (roadState & 0b01) ? "HEAVY" : "LIGHT");
+                                                                 ^
+main.c(78): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            sprintf(str,"%d traffic light 1 %s %s", prevTime[i], (prevState[i] & 0b10) ? "OFF" : "ON", (prevState[i] & 0b01) ? "OFF ON" : "ON OFF");
+                                                                                 ^
+main.c(78): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            sprintf(str,"%d traffic light 1 %s %s", prevTime[i], (prevState[i] & 0b10) ? "OFF" : "ON", (prevState[i] & 0b01) ? "OFF ON" : "ON OFF");
+                                                                                                                       ^
+main.c(81): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            sprintf(str,"%d traffic light 2 %s %s", prevTime[i], (prevState[i] & 0b10) ? "OFF" : "ON", (prevState[i] & 0b01) ? "ON OFF" : "OFF OFF");
+                                                                                 ^
+main.c(81): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            sprintf(str,"%d traffic light 2 %s %s", prevTime[i], (prevState[i] & 0b10) ? "OFF" : "ON", (prevState[i] & 0b01) ? "ON OFF" : "OFF OFF");
+                                                                                                                       ^
+main.c(84): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+                                                sprintf(str,"%d road east west %s", prevTime[i], (prevState[i] & 0b10) ? "HEAVY" : "LIGHT");
+                                                                                                                 ^
+main.c(87): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+                                                sprintf(str,"%d road north south %s", prevTime[i], (prevState[i] & 0b01) ? "HEAVY" : "LIGHT");
+                                                                                                                   ^
+main.c(60): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+    int roadState = 0;
+        ^
+main.c(164): warning: // comments are not allowed in this language [-Wcomment]
+                                //TIM6->ARR = in * 1000 - 1; /* update the ARR with the new value of in */
+                                ^
+main.c(240): warning: declaration shadows a variable in the global scope [-Wshadow]
+        uint32_t i = 0;
+                 ^
+main.c(15): note: previous declaration is here
+static uint32_t in_idx, out_idx, trf, R1=1, R2=1, Y1=1, Y2=1, G1=1, G2=1, T1=1, T2=1, in=20, flag=0, totaltime =0, i;
+                                                                                                                   ^
+main.c(270): warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+        GPIO_InitTypeDef op;
+                         ^
+24 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=19620 RO-data=1360 RW-data=52 ZI-data=2104  
+".\Objects\usart_comm.axf" - 0 Error(s), 31 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.0.pack
+                Keil.STM32F4xx_DFP.2.17.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 2.6.3
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Target_1
+  C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include
+  C:\Users\User\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:2.6.3
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f446xx.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
